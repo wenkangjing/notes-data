@@ -23,7 +23,7 @@ console.log(ds.toString());
 
 */
 
-
+/*
 const ds = new Series([1, 2, 3], {name: 'Test name'})
 
 // Returns Series([true, false, false])
@@ -42,3 +42,18 @@ ds.eq([0, 2, 3]);
 ds.filter(ds.eq([0, 2, 3]));
 
 console.log(ds.toString());
+
+*/
+
+
+const df = new DataFrame(Immutable.Map({x: new Series([1, 2]), y: new Series([2, 3])}));
+
+// Returns DataFrame(Immutable.Map({x: Series([2]), y: Series([3]));
+df.filter(df.get('x').gt(1));
+
+// Returns DataFrame(Immutable.Map({x: Series([2]), y: Series([3]));
+df.filter([false, true]);
+
+// Returns DataFrame(Immutable.Map({x: Series([2]), y: Series([3]));
+df.filter(Immutable.Map([false, true]));
+
